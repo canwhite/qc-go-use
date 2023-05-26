@@ -1,6 +1,8 @@
 package gosection
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func SectionTest() {
 	//创建空的切片
@@ -14,7 +16,22 @@ func SectionTest() {
 
 	//PS : 字符串的长度获取和数组的长度获取是一样的
 	for i := 0; i < len(arr); i++ {
-		fmt.Print(arr[i])
+		fmt.Println(arr[i])
 	}
+
+	//最常用的可能就是push和pop了
+	//push功能
+	stack := []int{}
+	stack = append(stack, 1)
+	stack = append(stack, 2)
+	stack = append(stack, 3)
+	fmt.Println(stack) //
+
+	//pop功能
+	//取值
+	top := stack[len(stack)-1]
+	//压缩
+	stack = stack[:len(stack)-1]
+	fmt.Println(top, stack)
 
 }
