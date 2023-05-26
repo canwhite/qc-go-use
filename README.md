@@ -12,8 +12,10 @@ go mod init qc-go-use
 
 -加载包
 
-go get 包地址
-PS：或者先import写上，报错后点击地址自己加载
+go get [-u] 包地址
+-u的意思是是否将包更新到最新
+PS：或者先import写上，报错后点击地址自己加载   
+
 
 
 -瘦身
