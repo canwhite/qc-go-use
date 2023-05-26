@@ -34,4 +34,10 @@ func SectionTest() {
 	stack = stack[:len(stack)-1]
 	fmt.Println(top, stack)
 
+	//常规for循环就不说了，这里主要展示下
+
+	for _, num := range stack {
+		fmt.Println(num)
+	}
+
 }
