@@ -2,7 +2,8 @@ package main
 
 import (
 	//gos "tgo/go_section"
-	gom "tgo/go_map"
+	// gom "tgo/go_map"
+	god "tgo/go_defer"
 )
 
 func main() {
@@ -13,6 +14,7 @@ func main() {
 	// gor.Test1()
 	// goroutine.GoRoutineTest1()
 	// goroutine.GoRoutineTest2()
-	gom.RunTest()
+	// gom.RunTest()
+	god.DeferTest()
 
 }
