@@ -9,16 +9,11 @@ import (
 	"golang.org/x/sync/singleflight"
 )
 
-type user1 struct {
-	id       int
-	name     string
-	password string
-	email    string
-	token    string
-}
+type user1 struct{}
 
 func getuserByID(sg *singleflight.Group, id int) user1 {
 	// 使用 id 作为 key
+	// 第二个参数是个回调
 	v, _, _ := sg.Do(strconv.Itoa(id), func() (interface{}, error) {
 		// 模拟数据库查询耗时
 		time.Sleep(time.Millisecond)
@@ -34,6 +29,7 @@ func BenchmarkBufferWithPool1(b *testing.B) {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()
+			//这里虽败呢给了一个id
 			_ = getuserByID(&sg, 1024)
 		}()
 	}
