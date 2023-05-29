@@ -1,0 +1,7 @@
+goos: darwin
+goarch: arm64
+pkg: tgo/go_singleflight
+BenchmarkBufferWithPool1-8   	    1000	      2422 ns/op	     372 B/op	       3 allocs/op
+BenchmarkBufferWithPool-8    	    1000	      1937 ns/op	     418 B/op	       2 allocs/op
+PASS
+ok  	tgo/go_singleflight	1.435s
