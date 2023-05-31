@@ -1,4 +1,4 @@
-package gosection
+package goslide
 
 import (
 	"fmt"
@@ -21,6 +21,7 @@ func SectionTest() {
 
 	//最常用的可能就是push和pop了
 	//push功能
+
 	stack := []int{}
 	stack = append(stack, 1)
 	stack = append(stack, 2)

@@ -1,7 +1,7 @@
 package main
 
 import (
-	//gos "tgo/go_section"
+	//gos "tgo/go_slide"
 	// gom "tgo/go_map"
 	god "tgo/go_defer"
 )
