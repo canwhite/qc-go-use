@@ -1,28 +1,21 @@
 package goasyncawait
 
-/**
 import (
-	"ioutil"
-	"net/http"
+	"fmt"
+	"time"
 )
 
-func myAsynchronousFunction(res chan *Response) {
-	response, _ := http.Get("http://example.com/")
-	defer response.Body.Close()
-	text, _ = ioutil.ReadAll(response.Body)
-	res <- text
+func doSomething(done chan bool) {
+	// pretend this is some long operation
+	time.Sleep(1 * time.Second)
+	done <- true // signal that we are done
 }
 
-//你可以理解它为有点异步单线程的意思
-func myAwaitingFunction() {
-	//传入一个channel对象，用于拿值
-	//这里male（通道类型 传递数据的类型是指针） 这个类似于map[string] int这样的定义
-	//或者
-	responseChannel := make(chan *Response)
-	//同步执行完
-	go myAsynchronousFunction(responseChannel)
-	//获取值
-	resp := <-responseChannel
+func AsyncTest() {
+	done := make(chan bool)
+	go doSomething(done)
 
+	//所以<-done 表示等待done channel返回一个值,从而实现等待goroutine结束的效果。
+	res := <-done // wait for goroutine to finish
+	fmt.Println("done!", res)
 }
-**/
