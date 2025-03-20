@@ -1,6 +1,16 @@
 package goclosure
 
+
+// add 函数是一个闭包函数的示例
+// 返回值定义 func(int) int 表示返回一个函数，这个函数：
+// - 接收一个int类型参数
+// - 返回一个int类型结果
+// 这种定义方式允许我们返回一个闭包函数
+
+
+
 func add(x int) func(int) int {
+	
 	sum := x
 	return func(y int) int { // 返回一个闭包
 		sum += y // 读取外层sum变量
