@@ -35,12 +35,45 @@ package set
 
 // 因此，建议使用合并式import的写法。
 
+// Go语言本身没有内置的Set数据结构，但可以通过以下方式实现类似功能：
+
+// 1. 使用map实现Set
+// map的key是唯一的，可以用来模拟Set
+// 示例：
+// set := make(map[string]bool)
+// set["a"] = true  // 添加元素
+// delete(set, "a") // 删除元素
+// if set["a"] {    // 检查元素是否存在
+//     fmt.Println("a存在")
+// }
+
+// 2. 使用sync.Map实现并发安全的Set
+// 适用于并发场景
+// 示例：
+// var set sync.Map
+// set.Store("a", true)  // 添加元素
+// set.Delete("a")       // 删除元素
+// if _, ok := set.Load("a"); ok {  // 检查元素是否存在
+//     fmt.Println("a存在")
+// }
+
+// 3. 使用第三方库
+// 如github.com/scylladb/go-set
+// 提供了更丰富的Set操作，如并集、交集、差集等
+// 示例见RunTest函数
+
+// 选择建议：
+// - 简单场景：使用map
+// - 并发场景：使用sync.Map
+// - 需要丰富操作：使用第三方库
+
 import (
 	"fmt"
 	"github.com/scylladb/go-set"
 )
 
 func RunTest() {
+	
 	s := set.NewStringSet("a", "b")
 	s.Add("c")
 	fmt.Println(s)
@@ -74,4 +107,15 @@ func RunTest() {
 	s4 := set.NewStringSet("n", "p")
 	s3.Merge(s4)
 	fmt.Println("合并后:", s3)
+	// 遍历Set
+	fmt.Println("遍历Set s3:")
+	for item := range s3.List() {
+		fmt.Println(item)
+	}
+
+	// 使用List遍历
+	fmt.Println("使用List遍历 s3:")
+	for item := range s3.List() {
+		fmt.Println(item)
+	}
 }

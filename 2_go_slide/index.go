@@ -10,6 +10,7 @@ func SectionTest() {
 	// make([]类型, 长度, 容量)
 	// 长度：当前切片包含的元素个数, TODO: 长度设置好了会有默认值
 	// 容量：底层数组的总大小
+	
 	slice1 := make([]int, 3) // 长度为3，容量默认为3的整型切片
 	slice2 := make([]string, 2, 5) // 长度为2，容量为5的字符串切片
 
@@ -48,16 +49,12 @@ func SectionTest() {
 	stack = append(stack, 3)
 	fmt.Println(stack) //
 
+	
+	
 	//pop功能
-	//取值
+	//1）先取值
 	top := stack[len(stack)-1]
-
-
-	//压缩
-	// 这里的"压缩"实际上是通过重新切片来实现的
-	// stack[:len(stack)-1] 创建了一个新的切片，它包含原切片中除了最后一个元素之外的所有元素
-	// 这种方式不会真正释放内存，只是改变了切片的长度
-	// 如果需要真正释放内存，可以使用 copy 函数创建一个新的切片
+	//2）再压缩
 	stack = stack[:len(stack)-1]
 	fmt.Println(top, stack)
 
@@ -71,6 +68,7 @@ func SectionTest() {
 	}
 
 
+	//元素包含也是这样的流程
 	// 查询元素
 	// 方式1：遍历查找
 	target := 2

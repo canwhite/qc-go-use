@@ -4,12 +4,12 @@ import (
 	//gos "tgo/go_slide"
 	// gom "tgo/go_map"
 	// god "tgo/go_defer"
-	govar "tgo/0_go_var"
-	goset "tgo/4_go_set"
+	// govar "tgo/0_go_var"
+	lo "tgo/16_lo"
 )
 
 func main() {
-	govar.VarTest()       // Uncomment to use the import
+	// govar.VarTest()       // Uncomment to use the import
 	// gos.SectionTest() //数组和切片
 	//gostruct.StructTest() //class
 	//gointerface.InterfaceTest()
@@ -18,5 +18,7 @@ func main() {
 	// goroutine.GoRoutineTest2()
 	// gom.RunTest()
 	// god.DeferTest()
-	goset.RunTest()
+	// goset.RunTest()
+	lo.HelloDash();
 }
+
